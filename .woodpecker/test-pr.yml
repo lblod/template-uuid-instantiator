@@ -1,0 +1,20 @@
+pipeline:
+  install:
+    image: danlynn/ember-cli:4.4.0
+    commands:
+      - npm ci
+  prettier-check:
+    image: danlynn/ember-cli:4.4.0
+    commands:
+      - prettier --check .
+  lint-js:
+    image: danlynn/ember-cli:4.4.0
+    group: lint
+    commands:
+      - npm run lint:js --workspaces --if-present
+  test:
+    image: danlynn/ember-cli:4.4.0
+    commands:
+      - npm run test || exit 0
+when:
+  event: pull_request
