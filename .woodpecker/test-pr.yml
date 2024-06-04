@@ -6,6 +6,7 @@ pipeline:
   prettier-check:
     image: danlynn/ember-cli:4.4.0
     commands:
+      - npm i prettier
       - prettier --check .
   lint-js:
     image: danlynn/ember-cli:4.4.0
