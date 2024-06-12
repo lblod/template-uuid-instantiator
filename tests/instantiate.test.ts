@@ -15,35 +15,35 @@ afterEach(() => {
 });
 
 test('uuid algorithm conversion works', () => {
-  const example = `<div resource="https//example.org/--ref-<uuid>-123">`;
+  const example = `<div resource="https://example.org/--ref-<uuid>-123">`;
   const result = instantiateUuids(example);
-  expect(result).toBe(`<div resource="https//example.org/uuid-1">`);
+  expect(result).toBe(`<div resource="https://example.org/uuid-1">`);
 });
 
 test('memoization works', () => {
   const example = `
-        <div resource="https//example.org/--ref-<uuid>-123">
-        <div resource="https//example.org/--ref-<uuid>-123">
-        <div resource="https//example.org/--ref-<uuid>-321">
+        <div resource="https://example.org/--ref-<uuid>-123">
+        <div resource="https://example.org/--ref-<uuid>-123">
+        <div resource="https://example.org/--ref-<uuid>-321">
     `;
   const expectation = `
-        <div resource="https//example.org/uuid-1">
-        <div resource="https//example.org/uuid-1">
-        <div resource="https//example.org/uuid-2">
+        <div resource="https://example.org/uuid-1">
+        <div resource="https://example.org/uuid-1">
+        <div resource="https://example.org/uuid-2">
     `;
   const result = instantiateUuids(example);
   expect(result).toBe(expectation);
 });
 
 test('algorithm defaults to uuid', () => {
-  const example = `<div resource="https//example.org/--ref-<not-a-valid-algo>-123">`;
+  const example = `<div resource="https://example.org/--ref-<not-a-valid-algo>-123">`;
   const result = instantiateUuids(example);
-  expect(result).toBe(`<div resource="https//example.org/uuid-1">`);
+  expect(result).toBe(`<div resource="https://example.org/uuid-1">`);
 });
 
 
 test('works with single quotes', () => {
-  const example = `<div resource='https//example.org/--ref-<uuid>-123'>`;
+  const example = `<div resource='https://example.org/--ref-<uuid>-123'>`;
   const result = instantiateUuids(example);
-  expect(result).toBe(`<div resource="https//example.org/uuid-1">`);
+  expect(result).toBe(`<div resource="https://example.org/uuid-1">`);
 });
