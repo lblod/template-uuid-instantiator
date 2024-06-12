@@ -39,7 +39,7 @@ export default function instantiateUuids(templateString: string) {
     memoizationTable,
   );
   return templateString.replace(
-    /"([^"]*)--ref-<([^"]*)>-([^"]*)"/g,
+    /["']([^"']+)--ref-<([^"'>]+)>-([^"']+)["']/g,
     replacingAlgorithmBinded,
   );
 }

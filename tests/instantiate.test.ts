@@ -40,3 +40,10 @@ test('algorithm defaults to uuid', () => {
   const result = instantiateUuids(example);
   expect(result).toBe(`<div resource="https//example.org/uuid-1">`);
 });
+
+
+test('works with single quotes', () => {
+  const example = `<div resource='https//example.org/--ref-<uuid>-123'>`;
+  const result = instantiateUuids(example);
+  expect(result).toBe(`<div resource="https//example.org/uuid-1">`);
+});
