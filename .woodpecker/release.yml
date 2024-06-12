@@ -1,6 +1,6 @@
 pipeline:
   install:
-    image: danlynn/ember-cli:4.4.0
+    image: node:20-slim
     commands:
       - npm ci
   release:
