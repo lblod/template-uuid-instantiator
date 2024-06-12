@@ -6,7 +6,7 @@ pipeline:
   prettier-check:
     image: node:20-slim
     commands:
-      - npx prettier --check .
+      - npm run prettier
   lint:
     image: node:20-slim
     group: lint
@@ -15,6 +15,6 @@ pipeline:
   test:
     image: node:20-slim
     commands:
-      - npm run test || exit 0
+      - npm run test 
 when:
   event: pull_request
