@@ -1,10 +1,10 @@
 import { v4 as uuidv4 } from 'uuid';
 
 type AlgorithmFunction = () => string;
-interface MemoizationEntry  {
+interface MemoizationEntry {
   uri: string;
   uuidAlgorithm: string;
-};
+}
 
 const algorithms: Record<string, AlgorithmFunction> = {
   uuid4: uuidv4,
