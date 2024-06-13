@@ -15,16 +15,16 @@ afterEach(() => {
 });
 
 test('uuid algorithm conversion works', () => {
-  const example = `<div resource="https://example.org/--ref-<uuid>-123">`;
+  const example = `<div resource="https://example.org/--ref-<uuid4>-123">`;
   const result = instantiateUuids(example);
   expect(result).toBe(`<div resource="https://example.org/uuid-1">`);
 });
 
 test('memoization works', () => {
   const example = `
-        <div resource="https://example.org/--ref-<uuid>-123">
-        <div resource="https://example.org/--ref-<uuid>-123">
-        <div resource="https://example.org/--ref-<uuid>-321">
+        <div resource="https://example.org/--ref-<uuid4>-123">
+        <div resource="https://example.org/--ref-<uuid4>-123">
+        <div resource="https://example.org/--ref-<uuid4>-321">
     `;
   const expectation = `
         <div resource="https://example.org/uuid-1">
@@ -41,9 +41,21 @@ test('algorithm defaults to uuid', () => {
   expect(result).toBe(`<div resource="https://example.org/uuid-1">`);
 });
 
-
 test('works with single quotes', () => {
-  const example = `<div resource='https://example.org/--ref-<uuid>-123'>`;
+  const example = `<div resource='https://example.org/--ref-<uuid4>-123'>`;
   const result = instantiateUuids(example);
   expect(result).toBe(`<div resource="https://example.org/uuid-1">`);
+});
+
+
+test('memoization with different algorithm ignores it', () => {
+  const example = `
+    <div resource='https://example.org/--ref-<uuid4>-123'>
+    <div resource='https://example.org/--ref-<not-a-valid-algo>-123'>
+  `;
+  const result = instantiateUuids(example);
+  expect(result).toBe(`
+    <div resource="https://example.org/uuid-1">
+    <div resource="https://example.org/uuid-1">
+  `);
 });

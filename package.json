@@ -8,7 +8,8 @@
     "test": "jest",
     "build": "tsc && vite build",
     "lint": "eslint src",
-    "prettier": "npx prettier --check ."
+    "prettier": "npx prettier --check .",
+    "prettier:fix": "npx prettier --write ."
   },
   "author": "",
   "license": "MIT",
