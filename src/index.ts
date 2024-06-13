@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 
 type AlgorithmFunction = () => string;
-type MemoizationEntry = {
+interface MemoizationEntry  {
   uri: string;
   uuidAlgorithm: string;
 };
