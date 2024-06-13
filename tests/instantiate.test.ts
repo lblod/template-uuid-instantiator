@@ -47,7 +47,6 @@ test('works with single quotes', () => {
   expect(result).toBe(`<div resource="https://example.org/uuid-1">`);
 });
 
-
 test('memoization with different algorithm ignores it', () => {
   const example = `
     <div resource='https://example.org/--ref-<uuid4>-bd17cfee-d836-42d1-be3c-9bb1bc276e20'>
