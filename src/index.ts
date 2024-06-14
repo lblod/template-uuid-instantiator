@@ -12,7 +12,6 @@ const algorithms: Record<string, AlgorithmFunction> = {
 
 function replacingAlgorithm(
   memoizationTable: Record<string, MemoizationEntry>,
-  _: unknown,
   uriBase: string,
   uuidAlgorithm: string,
   originalUuid: string,
@@ -50,7 +49,6 @@ function curryReplacingAlgorithm(
   ) => {
     return replacingAlgorithm(
       memoizationTable,
-      _,
       uriBase,
       uuidAlgorithm,
       originalUuid,
