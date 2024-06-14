@@ -1,0 +1,20 @@
+pipeline:
+  install:
+    image: node:20-slim
+    commands:
+      - npm ci
+  prettier-check:
+    image: node:20-slim
+    commands:
+      - npm run prettier
+  lint:
+    image: node:20-slim
+    group: lint
+    commands:
+      - npm run lint
+  test:
+    image: node:20-slim
+    commands:
+      - npm run test 
+when:
+  event: pull_request
