@@ -60,7 +60,7 @@ export default function instantiateUuids(templateString: string) {
   const memoizationTable = {};
   const replacingAlgorithmBinded = curryReplacingAlgorithm(memoizationTable);
   return templateString.replace(
-    /["']([^"']+)--ref-<([^"'>]+)>-([^"']+)["']/g,
+    /["']([^"']+)--ref-([^"'-]+)-([^"']+)["']/g,
     replacingAlgorithmBinded,
   );
 }
