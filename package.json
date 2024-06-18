@@ -1,6 +1,6 @@
 {
   "name": "template-uuid-instantiator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "dist/template-uuid-instantiator.js",
   "type": "module",
