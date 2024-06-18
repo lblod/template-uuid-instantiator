@@ -8,7 +8,6 @@ pipeline:
     settings:
       token:
         from_secret: npm_access_token
-      folder: template-uuid-instantiator
 when:
   event: tag
   tag: v*
