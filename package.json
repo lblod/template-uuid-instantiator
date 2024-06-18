@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "jest",
-    "build": "tsc && vite build",
+    "prepare": "tsc && vite build",
     "lint": "eslint src",
     "prettier": "npx prettier --check .",
     "prettier:fix": "npx prettier --write ."
