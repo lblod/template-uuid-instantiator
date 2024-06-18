@@ -3,6 +3,7 @@ pipeline:
     image: node:20-slim
     commands:
       - npm ci
+      - npm run build
   release:
     image: plugins/npm
     settings:
