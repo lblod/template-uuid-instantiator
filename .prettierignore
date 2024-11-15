@@ -2,3 +2,5 @@
 dist
 node_modules
 .woodpecker
+# Docs
+*.md
