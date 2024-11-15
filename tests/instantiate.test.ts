@@ -63,5 +63,7 @@ test('HTML entities are taken into account', () => {
   const example = `<div data-test="{&quot;http://example.net/imported-resource&quot;:&quot;https://example.org/--ref-uuid4-e0109d70-0389-41dd-a517-e1a754bc0ff6&quot;}">`;
 
   const result = instantiateUuids(example);
-  expect(result).toBe(`<div data-test="{&quot;http://example.net/imported-resource&quot;:&quot;https://example.org/uuid-1&quot;}">`)
+  expect(result).toBe(
+    `<div data-test="{&quot;http://example.net/imported-resource&quot;:&quot;https://example.org/uuid-1&quot;}">`,
+  );
 });

@@ -40,16 +40,8 @@ function replacingAlgorithm(
 function curryReplacingAlgorithm(
   memoizationTable: Record<string, MemoizationEntry>,
 ) {
-  return (
-    _: unknown,
-    uuidAlgorithm: string,
-    originalUuid: string,
-  ) => {
-    return replacingAlgorithm(
-      memoizationTable,
-      uuidAlgorithm,
-      originalUuid,
-    );
+  return (_: unknown, uuidAlgorithm: string, originalUuid: string) => {
+    return replacingAlgorithm(memoizationTable, uuidAlgorithm, originalUuid);
   };
 }
 
