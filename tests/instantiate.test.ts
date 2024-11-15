@@ -44,7 +44,7 @@ test('algorithm defaults to uuid', () => {
 test('works with single quotes', () => {
   const example = `<div resource='https://example.org/--ref-uuid4-bd17cfee-d836-42d1-be3c-9bb1bc276e20'>`;
   const result = instantiateUuids(example);
-  expect(result).toBe(`<div resource="https://example.org/uuid-1">`);
+  expect(result).toBe(`<div resource='https://example.org/uuid-1'>`);
 });
 
 test('memoization with different algorithm ignores it', () => {
@@ -54,18 +54,14 @@ test('memoization with different algorithm ignores it', () => {
   `;
   const result = instantiateUuids(example);
   expect(result).toBe(`
-    <div resource="https://example.org/uuid-1">
-    <div resource="https://example.org/uuid-1">
+    <div resource='https://example.org/uuid-1'>
+    <div resource='https://example.org/uuid-1'>
   `);
 });
 
 test('HTML entities are taken into account', () => {
-  const example = `
-    <div data-test="{&quot;http://example.net/imported-resource&quot;:&quot;https://example.org/--ref-uuid4-e0109d70-0389-41dd-a517-e1a754bc0ff6&quot;}">
-  `;
+  const example = `<div data-test="{&quot;http://example.net/imported-resource&quot;:&quot;https://example.org/--ref-uuid4-e0109d70-0389-41dd-a517-e1a754bc0ff6&quot;}">`;
 
   const result = instantiateUuids(example);
-  expect(result).toBe(`
-      <div data-test="{&quot;http://example.net/imported-resource&quot;:&quot;https://example.org/uuid-1&quot;}">
-    `)
+  expect(result).toBe(`<div data-test="{&quot;http://example.net/imported-resource&quot;:&quot;https://example.org/uuid-1&quot;}">`)
 });
