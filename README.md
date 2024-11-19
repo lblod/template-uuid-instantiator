@@ -4,7 +4,7 @@ This package allows you to instantiate uris of a string.
 
 ## Usage
 
-The utility loops over the text supplied and identifies the strings with the form `"https://example.org/--ref-algorithm-123-456-abc"`, we will explain each part below. It allows both " and '
+The utility loops over the text supplied and identifies the strings with the form `"https://example.org/--ref-algorithm-123-456-abc"`, we will explain each part below. It allows both " and ' , as well as HTML entities (such as `&quot;`). Quote types will be preserved.
 
 - Base uri: In the example is the `https://example.org/` part, this part will be preserved in the result uri
 - Uuid: This part is the `--ref-algorithm-123-456-abc` in the example. it has itself 3 parts:
